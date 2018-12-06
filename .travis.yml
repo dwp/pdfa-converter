@@ -1,0 +1,17 @@
+language: java
+jdk:
+  - oraclejdk7
+  - oraclejdk8
+  - openjdk7
+
+branches:
+  only:
+  - master
+  
+stages:
+  - package
+  
+jobs:
+  include:
+    - stage: package
+      script: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
